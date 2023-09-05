@@ -1,4 +1,7 @@
 # CoreShop Stripe Payum Connector
+
+> This fork works with the current flux payum 2.0 adapter
+
 This Bundle activates the Stripe Checkout & Stripe JS Payment Gateways in CoreShop.
 It requires the [FLUX-SE/PayumStripe](https://github.com/FLUX-SE/PayumStripe) repository which will be installed automatically.
 
@@ -7,7 +10,7 @@ It requires the [FLUX-SE/PayumStripe](https://github.com/FLUX-SE/PayumStripe) re
 #### 1. Composer
 
 ```json
-    "coreshop/payum-stripe-bundle": "^2.0"
+    "solverat/payum-stripe-bundle": "^3.0"
 ```
 
 #### 2. Activate
