@@ -1,5 +1,5 @@
 {
-    "name": "coreshop/payum-stripe-bundle",
+    "name": "solverat/payum-stripe-bundle",
     "type": "pimcore-bundle",
     "description": "CoreShop - Stripe Bundle",
     "keywords": [
