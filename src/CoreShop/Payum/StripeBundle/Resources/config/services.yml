@@ -4,15 +4,15 @@ imports:
 services:
     payum.stripe_checkout_gateway_factory:
         class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
-        arguments: [FluxSE\PayumStripe\StripeCheckoutSessionGatewayFactory]
+        arguments: [ FluxSE\PayumStripe\StripeCheckoutSessionGatewayFactory ]
         tags:
-            - {name: payum.gateway_factory_builder, factory: stripe_checkout }
+            - { name: payum.gateway_factory_builder, factory: stripe_checkout }
 
     payum.stripe_js_gateway_factory:
         class: Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder
-        arguments: [FluxSE\PayumStripe\StripeJsGatewayFactory]
+        arguments: [ FluxSE\PayumStripe\StripeJsGatewayFactory ]
         tags:
-            - {name: payum.gateway_factory_builder, factory: stripe_js }
+            - { name: payum.gateway_factory_builder, factory: stripe_js }
 
     CoreShop\Payum\StripeBundle\Form\Payment\StripeGatewayConfigurationType:
         tags:
@@ -34,3 +34,12 @@ services:
             $detailsProvider: '@coreshop.payum_stripe_checkout.provider.details'
         tags:
             - { name: payum.action, factory: stripe_checkout, alias: coreshop.payum_stripe_checkout.convert_payment }
+
+    CoreShop\Payum\StripeBundle\Extension\UpdatePaymentStateExtension:
+        public: true
+        arguments:
+            - '@CoreShop\Bundle\WorkflowBundle\Manager\StateMachineManagerInterface'
+            - '@coreshop.repository.payment'
+            - '@CoreShop\Bundle\PayumBundle\Factory\GetStatusFactoryInterface'
+        tags:
+            - { name: payum.extension, factory: stripe_checkout, alias: coreshop.payum_stripe_checkout.update_payment_state }

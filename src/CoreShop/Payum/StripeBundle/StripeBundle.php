@@ -34,11 +34,8 @@ class StripeBundle extends AbstractPimcoreBundle
         parent::build($container);
     }
 
-    /**
-     * @inheritDoc
-     */
     protected function getComposerPackageName(): string
     {
-        return 'coreshop/payum-stripe-bundle';
+        return 'solverat/payum-stripe-bundle';
     }
 }
