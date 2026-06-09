@@ -1,3 +1,6 @@
+## 3.1.0 
+Update Dependencies
+
 ## 3.0.1 
 Implement UpdatePaymentStateExtension to process payments within webhook calls
 
